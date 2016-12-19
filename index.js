@@ -82,7 +82,7 @@ server.register([{
         register: require('./server/utils/g.js'),
         options: require('./view_globals.js')
     }, {
-        register: require('./server/controller/byd_controller.js')
+        register: require('./server/controller/bi_controller.js')
     }
 ], function() {
     //Start the server
