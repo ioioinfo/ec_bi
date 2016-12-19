@@ -3,7 +3,7 @@ var EventProxy = require('eventproxy');
 
 var nav = function(server) {
     return {
-        get_product_sale: function(product_id,cb) {
+        get_product_sales: function(product_id,cb) {
             var sql = `select a.total_number,a.total_sales
                 ,date_format(a.updated_at,'%Y-%d-%m %H:%i:%s') updated_at
                 from product_sales a 

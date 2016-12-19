@@ -30,7 +30,7 @@ exports.register = function(server, options, next) {
                     return reply({success:false,message:"product id is null",service_info:service_info});
                 }
                 
-                server.plugins.models.sale.get_product_sale(product_id,function(err,rows) {
+                server.plugins.models.sales.get_product_sales(product_id,function(err,rows) {
                     var row = {};
                     if (rows && rows.length > 0) {
                         row = rows[0];   
