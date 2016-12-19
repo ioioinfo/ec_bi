@@ -5,7 +5,7 @@ var nav = function(server) {
     return {
         get_product_sales: function(product_id,cb) {
             var sql = `select a.total_number,a.total_sales
-                ,date_format(a.updated_at,'%Y-%d-%m %H:%i:%s') updated_at
+                ,date_format(a.updated_at,'%Y-%m-%d %H:%i:%s') updated_at
                 from product_sales a 
                 where a.product_id=?
             `;
