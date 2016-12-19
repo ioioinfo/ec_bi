@@ -8,7 +8,7 @@ exports.register = function(server, options, next){
 		server.expose(key, model);
 	};
 
-  load_model('sale', './sale.js');
+  load_model('sales', './sales.js');
   
   next();
 }
