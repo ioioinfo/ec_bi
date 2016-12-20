@@ -9,6 +9,7 @@ exports.register = function(server, options, next){
 	};
 
   load_model('sales', './sales.js');
+  load_model('product', './product.js');
   
   next();
 }
