@@ -39,6 +39,28 @@ exports.register = function(server, options, next) {
                 });
             },
         },
+
+        // 商品评价汇总
+        {
+            method: 'GET',
+            path: '/get_product_comments_summary',
+            handler: function(request, reply) {
+                var product_id = request.query.product_id;
+
+                // require field check
+                if (!product_id) {
+                    return reply({success:false,message:"product id is null",service_info:service_info});
+                }
+                
+                server.plugins.models.product.get_product_comments_summary(product_id,function(err,rows) {
+                    var row = {};
+                    if (rows && rows.length > 0) {
+                        row = rows[0];   
+                    }
+                    return reply({success:true,message:"ok",row:row,service_info:service_info});
+                });
+            },
+        },
         
     ]);
 
