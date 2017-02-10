@@ -19,6 +19,7 @@ exports.register = function(server, options, next) {
             },
         },
         
+        //产品销量
         {
             method: 'GET',
             path: '/get_product_sales',

@@ -4,7 +4,7 @@ var EventProxy = require('eventproxy');
 var nav = function(server) {
     return {
         get_product_comments_summary: function(product_id,cb) {
-            var sql = `select a.total_number,a.good_comment,a.normal_comment
+            var sql = `select a.total_number,a.pic_comment,a.good_comment,a.normal_comment
                 ,a.bad_comment
                 from interaction_comments_summaries a 
                 where a.product_id=?
