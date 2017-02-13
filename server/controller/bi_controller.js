@@ -58,6 +58,9 @@ exports.register = function(server, options, next) {
                     if (rows && rows.length > 0) {
                         row = rows[0];   
                     }
+                    //计算好评率
+                    row.good_rate_text = (row.good_comment*100/row.total_number).toFixed(2) + "%";
+                    
                     return reply({success:true,message:"ok",row:row,service_info:service_info});
                 });
             },
