@@ -55,7 +55,7 @@ exports.register = function(server, options, next) {
                 
                 var product_ids = JSON.parse(str_product_ids);
                 
-                server.plugins.models.product.get_products_comments_summary(product_ids,function(err,rows) {
+                server.plugins.models.product.get_products_comment_summary(product_ids,function(err,rows) {
                     _.each(rows,function(row) {
                         //计算好评率
                         row.good_rate_text = (row.good_comment*100/row.total_number).toFixed(0) + "%";
