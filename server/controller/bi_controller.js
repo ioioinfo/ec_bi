@@ -44,32 +44,7 @@ exports.register = function(server, options, next) {
         // 商品评价汇总
         {
             method: 'GET',
-            path: '/get_product_comments_summary',
-            handler: function(request, reply) {
-                var product_id = request.query.product_id;
-
-                // require field check
-                if (!product_id) {
-                    return reply({success:false,message:"product id is null",service_info:service_info});
-                }
-                
-                server.plugins.models.product.get_product_comments_summary(product_id,function(err,rows) {
-                    var row = {};
-                    if (rows && rows.length > 0) {
-                        row = rows[0];   
-                    }
-                    //计算好评率
-                    row.good_rate_text = (row.good_comment*100/row.total_number).toFixed(0) + "%";
-                    
-                    return reply({success:true,message:"ok",row:row,service_info:service_info});
-                });
-            },
-        },
-        
-        // 商品评价汇总
-        {
-            method: 'GET',
-            path: '/get_products_comments_summary',
+            path: '/get_products_comment_summary',
             handler: function(request, reply) {
                 var str_product_ids = request.query.product_ids;
 
