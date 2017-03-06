@@ -54,6 +54,9 @@ exports.register = function(server, options, next) {
                 }
                 
                 var product_ids = JSON.parse(str_product_ids);
+                if (product_ids && product_ids.length == 0) {
+                    return reply({success:true,message:"ok",rows:[],service_info:service_info});
+                }
                 
                 server.plugins.models.product.get_products_comment_summary(product_ids,function(err,rows) {
                     _.each(rows,function(row) {
