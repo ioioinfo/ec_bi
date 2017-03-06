@@ -14,7 +14,7 @@ var nav = function(server) {
             server.plugins.mysql.query(sql, params, function(err, rows) {
                 if (err) {
                     console.log(err);
-                    cb(err,nil);
+                    cb(err,null);
                 }
                 cb(false,rows);
             });
