@@ -15,6 +15,7 @@ var nav = function(server) {
                 if (err) {
                     console.log(err);
                     cb(err,nil);
+                    return;
                 }
                 cb(false,rows);
             });
