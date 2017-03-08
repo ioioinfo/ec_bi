@@ -89,13 +89,17 @@ exports.register = function(server, options, next) {
                 }
                 
                 server.plugins.models.product.get_recommend_products(person_id,function(err,rows) {
+                    if (rows.length == 0) {
+                        return reply({success:true,message:"ok",rows:[],service_info:service_info});
+                    }
+                    
                     var product_ids = [];
                     _.each(rows,function(row) {
                         product_ids.push(row.product_id);
                     });
                     
                     get_products_by_ids(JSON.stringify(product_ids), function(err,content) {
-                        return reply({success:true,message:"ok",rows:content.rows,service_info:service_info});
+                        return reply({success:true,message:"ok",rows:content.products,service_info:service_info});
                     });
                 });
             },
@@ -113,13 +117,17 @@ exports.register = function(server, options, next) {
                 }
                 
                 server.plugins.models.product.get_hot_sale_products(person_id,function(err,rows) {
+                    if (rows.length == 0) {
+                        return reply({success:true,message:"ok",rows:[],service_info:service_info});
+                    }
+                    
                     var product_ids = [];
                     _.each(rows,function(row) {
                         product_ids.push(row.product_id);
                     });
                     
                     get_products_by_ids(JSON.stringify(product_ids), function(err,content) {
-                        return reply({success:true,message:"ok",rows:content.rows,service_info:service_info});
+                        return reply({success:true,message:"ok",rows:content.products,service_info:service_info});
                     });
                 });
             },
@@ -137,13 +145,17 @@ exports.register = function(server, options, next) {
                 }
                 
                 server.plugins.models.product.get_new_arrival_products(person_id,function(err,rows) {
+                    if (rows.length == 0) {
+                        return reply({success:true,message:"ok",rows:[],service_info:service_info});
+                    }
+                    
                     var product_ids = [];
                     _.each(rows,function(row) {
                         product_ids.push(row.product_id);
                     });
                     
                     get_products_by_ids(JSON.stringify(product_ids), function(err,content) {
-                        return reply({success:true,message:"ok",rows:content.rows,service_info:service_info});
+                        return reply({success:true,message:"ok",rows:content.products,service_info:service_info});
                     });
                 });
             },
