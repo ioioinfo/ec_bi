@@ -20,6 +20,54 @@ var nav = function(server) {
                 cb(false,rows);
             });
         },
+        
+        get_recommend_products: function(person_id,cb) {
+            var sql = `select a.product_id
+                from recommend_products a 
+            `;
+            
+            var params = [person_id];
+            server.plugins.mysql.query(sql, params, function(err, rows) {
+                if (err) {
+                    console.log(err);
+                    cb(err,null);
+                    return;
+                }
+                cb(false,rows);
+            });
+        },
+        
+        get_hot_sale_products: function(person_id,cb) {
+            var sql = `select a.product_id
+                from hot_sale_products a 
+            `;
+            
+            var params = [person_id];
+            server.plugins.mysql.query(sql, params, function(err, rows) {
+                if (err) {
+                    console.log(err);
+                    cb(err,null);
+                    return;
+                }
+                cb(false,rows);
+            });
+        },
+        
+        get_new_arrival_products: function(person_id,cb) {
+            var sql = `select a.product_id
+                from new_arrival_products a 
+            `;
+            
+            var params = [person_id];
+            server.plugins.mysql.query(sql, params, function(err, rows) {
+                if (err) {
+                    console.log(err);
+                    cb(err,null);
+                    return;
+                }
+                cb(false,rows);
+            });
+        },
     };
 };
 

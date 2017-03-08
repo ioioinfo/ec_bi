@@ -55,21 +55,16 @@ var db_options = {
     First: community/npm plugins are loaded
     Second: project specific plugins are loaded
  */
-server.register([{
+ server.register([
+    {
         register: require("good"),
         options: {
-            opsInterval: 5000,
-            reporters: [{
-                    reporter: require('good-console'),
-                    events: {
-                        ops: '*',
-                        request: '*',
-                        log: '*',
-                        response: '*',
-                        'error': '*'
-                    }
-                }
-            ]
+            ops: {interval: 5000},
+            reporters: {
+                myConsoleReporter: [{
+                    module: 'good-console'
+                }, 'stdout']
+            }
         }
     }, {
         register: require('./server/utils/cache.js')
