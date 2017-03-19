@@ -13,7 +13,7 @@ exports.register = function(server, options, next) {
         //获取常去门店
         {
             method: 'GET',
-            path: '/get_visited_stores',
+            path: '/list_visited_stores',
             handler: function(request, reply) {
                 var person_id = request.query.person_id;
                 
