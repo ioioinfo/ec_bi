@@ -77,7 +77,11 @@ var db_options = {
         register: require('./server/utils/g.js'),
         options: require('./view_globals.js')
     }, {
-        register: require('./server/controller/bi_controller.js')
+        register: require('./server/controller/index_controller.js')
+    }, {
+        register: require('./server/controller/product_controller.js')
+    }, {
+        register: require('./server/controller/member_controller.js')
     }
 ], function() {
     //Start the server

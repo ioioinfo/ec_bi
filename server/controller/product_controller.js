@@ -4,11 +4,9 @@ var uu_request = require('../utils/uu_request');
 var moment = require('moment');
 var EventProxy = require('eventproxy');
 
-var moduel_prefix = 'ioio_ec_bi';
+var moduel_prefix = 'ioio_ec_bi_product';
 
 exports.register = function(server, options, next) {
-    var _ = require('lodash');
-
     var service_info = `ec bi service`;
     
     //查询商品信息
