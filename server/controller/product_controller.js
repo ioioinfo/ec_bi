@@ -18,14 +18,6 @@ exports.register = function(server, options, next) {
     };
 
     server.route([
-        {
-            method: 'GET',
-            path: '/desc',
-            handler: function(request, reply) {
-                return reply({"success":true,"message":"ok","desc":"ioio ec bi service","service_info":service_info});
-            },
-        },
-        
         //产品销量
         {
             method: 'GET',
