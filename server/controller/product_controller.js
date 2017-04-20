@@ -117,7 +117,11 @@ exports.register = function(server, options, next) {
                     });
                     
                     get_products_by_ids(JSON.stringify(product_ids), function(err,content) {
-                        return reply({success:true,message:"ok",rows:content.products,service_info:service_info});
+                        var products = [];
+                        if (content) {
+                            products = content.products;
+                        }
+                        return reply({success:true,message:"ok",rows:products,service_info:service_info});
                     });
                 });
             },
